@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->enum('role', ['admin','store']); // enum -> type data yang isiannya sudah kita tentukan
             $table->rememberToken();
+            $table->softDeletes(); // fungsinya data yang terhapus  sebenernya ga kehapus masih terseimpan di table cuman diberikan flag
             $table->timestamps(); //datetime created at dan updated at
         });
 

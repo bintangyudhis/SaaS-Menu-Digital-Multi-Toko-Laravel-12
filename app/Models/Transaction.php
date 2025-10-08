@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Transaction extends Model
 {
+    use SoftDeletes; // fungsinya data yang terhapus  sebenernya ga kehapus masih terseimpan di table cuman diberikan flag
+
     protected $fillable = [
         'user_id',
         'code',
@@ -18,6 +21,11 @@ class Transaction extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class); 
+        return $this->belongsTo(User::class);
+    }
+
+    public function transactionDetails()
+    {
+        return $this->hasMany(TransactionDetail::class);
     }
 }

@@ -17,8 +17,9 @@ return new class extends Migration
             $table->foreignId('product_category_id')->constrained()->onDelete('cascade');
             $table->string('image');
             $table->string('name');
-            $table->string('descriprion');
+            $table->text('descriprion');
             $table->desimal('price', 10, 2);
+            $table->softDeletes(); // fungsinya data yang terhapus  sebenernya ga kehapus masih terseimpan di table cuman diberikan flag
             $table->timestamps();
         });
     }

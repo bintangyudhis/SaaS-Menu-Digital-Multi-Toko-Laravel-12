@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
+    use SoftDeletes; // buat soft delete (fungsinya data yang terhapus  sebenernya ga kehapus masih terseimpan di table cuman diberikan flag)
+
     protected $fillable = [
         'user_id',
         'product_category_id',
@@ -26,5 +29,10 @@ class Product extends Model
     public function productCategory()
     {
         return $this->belongsTo(ProductCategory::class);
+    }
+
+    public function transactionDetails()
+    {
+        return $this->hasMany(TransactionDetail::class);
     }
 }

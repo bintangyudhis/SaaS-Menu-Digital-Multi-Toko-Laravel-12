@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 // php artisan make:model ProductCategory -m itu membuat model beserta migrationya (model adalah yg berhubungan dengan databasenya, migration yg create databsenya)
 class ProductCategory extends Model
 {
+    use SoftDeletes; // fungsinya data yang terhapus  sebenernya ga kehapus masih terseimpan di table cuman diberikan flag
+
     protected $fillable = [
         'user_id',
         'name',

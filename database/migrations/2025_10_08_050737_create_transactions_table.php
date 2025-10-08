@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('payment_method',['cash','midtrans']); // enum -> typedata yang isiannya kita tentukan
             $table->decimal('total_price', 10, 2);
             $table->enum('status', ['pending', 'success', 'failed']);
+            $table->softDeletes(); // fungsinya data yang terhapus  sebenernya ga kehapus masih terseimpan di table cuman diberikan flag
             $table->timestamps();
         });
     }
