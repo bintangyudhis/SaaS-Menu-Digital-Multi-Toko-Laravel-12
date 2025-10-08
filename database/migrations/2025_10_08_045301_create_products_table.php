@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image');
             $table->string('name');
             $table->text('descriprion');
-            $table->desimal('price', 10, 2);
+            $table->decimal('price', 10, 2);
             $table->softDeletes(); // fungsinya data yang terhapus  sebenernya ga kehapus masih terseimpan di table cuman diberikan flag
             $table->timestamps();
         });
