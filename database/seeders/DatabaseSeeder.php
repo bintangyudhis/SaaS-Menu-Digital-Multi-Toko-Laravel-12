@@ -11,13 +11,13 @@ class DatabaseSeeder extends Seeder
     /**
      * Seed the application's database.
      */
+
+    // database seeder adalah tempat memanggil seeder
+    // untuk menjalankannya ketik php artisan db:seed di terminal
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        $this->call([
+            AdminSeeder::class,
         ]);
     }
 }
