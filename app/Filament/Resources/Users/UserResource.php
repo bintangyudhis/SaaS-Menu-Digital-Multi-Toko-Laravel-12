@@ -34,7 +34,7 @@ class UserResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::User; // icon sidebar
 
-    protected static ?string $navigationLabel = 'Manajemen User';
+    protected static ?string $navigationLabel = 'Manajemen User'; // nama label
 
     public static function canViewAny(): bool
     {
