@@ -4,17 +4,18 @@ namespace App\Filament\Resources\ProductCategories\Tables;
 
 use Filament\Tables\Table;
 use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
+use Filament\Actions\DeleteAction;
 use Illuminate\Support\Facades\Auth;
 use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteAction;
+use Filament\Schemas\Components\View;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Actions\ForceDeleteBulkAction;
-use Filament\Actions\ViewAction;
-use Filament\Schemas\Components\View;
-use Filament\Tables\Filters\SelectFilter;
 
 class ProductCategoriesTable
 {
@@ -28,6 +29,9 @@ class ProductCategoriesTable
 
                 TextColumn::make('name')
                     ->label('Nama Kategori'),
+
+                ImageColumn::make('icon')
+                    ->label('Ikon Kategori'),
             ])
             ->filters([
                 TrashedFilter::make(),

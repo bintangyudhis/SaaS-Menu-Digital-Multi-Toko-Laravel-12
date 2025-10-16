@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\ProductCategories\Schemas;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Filament\Forms\Components\Select;
@@ -22,6 +23,11 @@ class ProductCategoryForm
                 TextInput::make('name')
                     ->label('Nama Kategori')
                     ->required(),
+
+                FileUpload::make('icon')
+                    ->label('Ikon Kategori')
+                    ->required(),
+
 
             ]);
     }
