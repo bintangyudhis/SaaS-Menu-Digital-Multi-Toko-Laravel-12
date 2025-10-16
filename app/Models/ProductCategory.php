@@ -18,6 +18,7 @@ class ProductCategory extends Model
         'user_id',
         'name',
         'slug', // slug -> id unik ketika kita melakukan filter brdasarkan product category slug ini yang akan dimunculkan daripada kita menggunakan id
+        'icon',
     ];
 
     public static function boot() // melakukan generate slug otomatis
