@@ -18,6 +18,7 @@ class ProductCategoryForm
                 Select::make('user_id')
                     ->label('Toko')
                     ->relationship('user', 'name')
+                    ->required()
                     ->hidden(fn() => Auth::user() -> role == 'store'),
 
                 TextInput::make('name')
