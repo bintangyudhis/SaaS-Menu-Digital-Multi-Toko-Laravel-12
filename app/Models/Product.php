@@ -17,6 +17,8 @@ class Product extends Model
         'name',
         'description',
         'price',
+        'rating',
+        'is_popular',
     ];
 
     protected $casts = [ // nanti price nya akan ditampilkan desimal
