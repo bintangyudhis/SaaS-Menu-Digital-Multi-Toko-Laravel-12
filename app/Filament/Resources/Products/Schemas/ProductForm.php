@@ -4,10 +4,12 @@ namespace App\Filament\Resources\Products\Schemas;
 
 use Filament\Schemas\Schema;
 use App\Models\ProductCategory;
+use Dom\Text;
 use Illuminate\Support\Facades\Auth;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
 
@@ -75,8 +77,16 @@ class ProductForm
                     ->required(),
 
                 Toggle::make('is_popular')
-                        ->label('Popular Menu')
-                        ->required(),
+                    ->label('Popular Menu')
+                    ->required(),
+                Repeater::make('productIngredients')
+                    ->label('Bahan Baku Menu')
+                    ->relationship('productIngredients')
+                    ->schema([
+                        TextInput::make('name')
+                            ->label('Nama Bahan')
+                            ->required(),
+                    ])->columnSpanFull()
 
             ]);
     }

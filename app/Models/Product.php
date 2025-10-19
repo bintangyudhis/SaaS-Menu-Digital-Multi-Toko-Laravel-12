@@ -39,7 +39,7 @@ class Product extends Model
             if (Auth::user()->role == 'store') {
                 $model->user_id = Auth::user()->id; // ketika sedang update otomatis menginjek si user id nya beserta slugnya
             }
-            $model->slug = str()->slug($model->name); // generate slug dari name
+            // $model->slug = str()->slug($model->name); // generate slug dari name
         });
     }
 
@@ -52,8 +52,15 @@ class Product extends Model
         return $this->belongsTo(ProductCategory::class);
     }
 
+    public function productIngredients() // 1 product bisa memiliki banyak ingredients
+    {
+        return $this->hasMany(ProductIngredient::class);
+    }
+
     public function transactionDetails()
     {
         return $this->hasMany(TransactionDetail::class);
     }
+
+
 }
