@@ -9,6 +9,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Toggle;
 
 class ProductForm
 {
@@ -68,6 +69,14 @@ class ProductForm
                     ->numeric()
                     ->required(),
 
+                TextInput::make('rating')
+                    ->label('Rating Menu')
+                    ->numeric()
+                    ->required(),
+
+                Toggle::make('is_popular')
+                        ->label('Popular Menu')
+                        ->required(),
 
             ]);
     }

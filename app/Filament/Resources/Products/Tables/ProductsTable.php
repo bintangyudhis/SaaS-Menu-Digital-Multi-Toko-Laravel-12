@@ -9,6 +9,7 @@ use Filament\Actions\ViewAction;
 use Filament\Actions\DeleteAction;
 use Illuminate\Support\Facades\Auth;
 use Filament\Actions\BulkActionGroup;
+use Filament\Forms\Components\Toggle;
 use Filament\Schemas\Components\View;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
@@ -17,6 +18,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Tables\Columns\ToggleColumn;
 
 class ProductsTable
 {
@@ -36,6 +38,10 @@ class ProductsTable
                     ->formatStateUsing(function (string $state) {
                         return 'RP ' . number_format($state);
                     }),
+                TextColumn::make('rating')
+                    ->label('Rating Menu'),
+                ToggleColumn::make('is_popular')
+                    ->label('Popular Menu'),
             ])
             ->filters([
                 TrashedFilter::make(),
