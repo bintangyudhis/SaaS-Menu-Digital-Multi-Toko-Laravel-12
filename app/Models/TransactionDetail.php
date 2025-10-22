@@ -9,7 +9,7 @@ class TransactionDetail extends Model
 {
     use SoftDeletes; //fungsinya data yang terhapus  sebenernya ga kehapus masih terseimpan di table cuman diberikan flag
 
-    protected $fillabe = [ //fillable -> attribut yang ada pada table tersebut
+    protected $fillable = [ //fillable -> attribut yang ada pada table tersebut
         'transaction_id',
         'product_id',
         'quantity',
