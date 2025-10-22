@@ -34,6 +34,9 @@ class TransactionForm
                 TextInput::make('name')
                     ->label('Nama Customer')
                     ->required(),
+                TextInput::make('phone_number')
+                    ->label('Nomor HP Customer')
+                    ->required(),
                 TextInput::make('table_number')
                     ->label('Nomer Meja')
                     ->required(),

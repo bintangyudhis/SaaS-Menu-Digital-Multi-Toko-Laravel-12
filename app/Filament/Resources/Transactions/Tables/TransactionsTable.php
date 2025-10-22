@@ -29,6 +29,8 @@ class TransactionsTable
                     ->label('Kode Transaksi'),
                 TextColumn::make('name')
                     ->label('Nama Customer'),
+                TextColumn::make('phone_number')
+                    ->label('Nomor HP Customer'),
                 TextColumn::make('table_number')
                     ->label('Nomor Meja'),
                 TextColumn::make('payment_method')
