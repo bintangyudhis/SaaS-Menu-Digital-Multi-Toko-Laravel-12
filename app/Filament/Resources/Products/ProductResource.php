@@ -6,6 +6,7 @@ use UnitEnum;
 use BackedEnum;
 use App\Models\Product;
 use Filament\Tables\Table;
+use App\Models\Subscription;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
@@ -37,6 +38,25 @@ class ProductResource extends Resource
         }
 
         return parent::getEloquentQuery()->where('user_id', $user->id); // ketika selain admin dia akan melakukan filter berdasarkan user id
+    }
+
+    public static function canCreate(): bool
+    {
+        // jika admin bisa mengcreate
+        if (Auth::user()-> role === 'admin') {
+            return true;
+        }
+
+        // kalau bukan admin di cek subscriptionnya berdasarkan id
+        $subscription = Subscription::where('user_id', Auth::user()->id)
+            ->where('end_date', '>', now())
+            ->where('is_active', true)
+            ->latest()
+            ->first();
+
+            $countProduct = Product::where('user_id', Auth::user()->id)->count(); // cek jumlah produk user
+
+            return !($countProduct >= 5 && !$subscription); // mereturn user yang sudah melebihi 5 produk dan tidak ada subscription maka user tidak bisa membuat produk
     }
 
     public static function form(Schema $schema): Schema
