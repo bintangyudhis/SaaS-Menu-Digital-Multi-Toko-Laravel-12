@@ -41,7 +41,8 @@ class SubscriptionsTable
                 TrashedFilter::make(),
             ])
             ->recordActions([
-                EditAction::make(),
+                EditAction::make()
+                    ->visible(fn () => Auth::user()->role === 'admin'), // logo edit hanya akan muncul jika user role nya admin
                 DeleteAction::make(),
             ])
             ->toolbarActions([
