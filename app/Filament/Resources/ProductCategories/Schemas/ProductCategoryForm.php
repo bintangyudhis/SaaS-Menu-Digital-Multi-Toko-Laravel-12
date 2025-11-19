@@ -19,7 +19,7 @@ class ProductCategoryForm
                     ->label('Toko')
                     ->relationship('user', 'name')
                     ->required()
-                    ->hidden(fn() => Auth::user() -> role == 'store'),
+                    ->hidden(fn() => Auth::user()->role == 'store'),
 
                 TextInput::make('name')
                     ->label('Nama Kategori')
@@ -27,6 +27,7 @@ class ProductCategoryForm
 
                 FileUpload::make('icon')
                     ->label('Ikon Kategori')
+                    ->disk('public')
                     ->required(),
 
 
