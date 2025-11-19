@@ -56,6 +56,7 @@ class ProductForm
                 FileUpload::make('image')
                     ->label('Foto Menu')
                     ->image()
+                    ->disk('public')
                     ->required(),
 
                 TextInput::make('name')
