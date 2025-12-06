@@ -30,6 +30,7 @@ class SubscriptionForm
                         FileUpload::make('proof') // bukti pembayaran
                             ->label('Bukti Transfer Ke Rekening 1234567 (BRI) A/N Bintang Yudhistira Sebesar Rp. 50.000')
                             ->required()
+                            ->disk('public')
                             ->columnSpanfull(),
                         Select::make('status')
                             ->options([
