@@ -48,6 +48,7 @@ class UserResource extends Resource
                 FileUpload::make('logo')
                     ->label('Logo toko')
                     ->image()
+                    ->disk('public')
                     ->required(),
 
                 TextInput::make('name')
