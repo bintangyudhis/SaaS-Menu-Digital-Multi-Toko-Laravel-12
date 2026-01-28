@@ -90,7 +90,7 @@
                 </p>
             </div>
 
-            <a href="customer-information.html" type="button"
+            <a href="{{ route('customer-information', $store->username) }}" type="button"
                 class="flex justify-center rounded-full p-[14px_28px] bg-[#FF801A] font-normal text-white">
                 Checkout
             </a>
