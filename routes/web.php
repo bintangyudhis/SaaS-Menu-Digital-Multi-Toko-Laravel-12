@@ -14,3 +14,9 @@ Route::get('/{username}/find-product/result', [ProductController::class, 'findRe
 Route::get('/{username}/product/{id}', [ProductController::class, 'show'])->name('product.show');
 
 Route::get('/{username}/cart', [TransactionController::class, 'cart'])->name('cart');
+
+Route::get('/{username}/customer-information', [TransactionController::class, 'customerInformation'])->name('customer-information');
+
+
+Route::post('/{username}/checkout', [TransactionController::class, 'checkout'])->name('payment');
+Route::get('/transaction/succes', [TransactionController::class, 'succes'])->name('succes');
