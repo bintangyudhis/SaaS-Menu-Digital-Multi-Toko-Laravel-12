@@ -26,13 +26,13 @@ class Transaction extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            if (Auth::user()->role == 'store') {
+            if (Auth::check() && Auth::user()->role == 'store') {
                 $model->user_id = Auth::user()->id; // ketika sedang create otomatis menginjek si user id nya beserta slugnya
             }
         });
 
         static::updating(function ($model) {
-            if (Auth::user()->role == 'store') {
+            if (Auth::check() && Auth::user()->role == 'store') {
                 $model->user_id = Auth::user()->id; // ketika sedang update otomatis menginjek si user id nya beserta slugnya
             }
             // $model->slug = str()->slug($model->name); // generate slug dari name
